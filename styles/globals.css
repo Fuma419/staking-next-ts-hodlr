@@ -1,3 +1,12 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content to the top */
+    padding-top: 10%; /* Push content down by 25% of the parent's height */
+    height: 100%;
+    /* other styles */
+  }
+
 .container {
     background-color: #141416;
   }
@@ -11,8 +20,10 @@
     align-items: center;
   }
 
-  .demo {
-    border-radius: 30px; /* Increase this value to your preference */
-    /* other styles */
+  .custom-stake-button-wrapper {
+    padding-bottom: 20px; /* Adjust the padding as needed */
+    border-radius: 10px; /* Adjust the border-radius as needed */
+    overflow: hidden; /* To ensure the border-radius applies to children */
   }
+  
   

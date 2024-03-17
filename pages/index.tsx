@@ -31,12 +31,14 @@ export default function Home() {
         </h1>
 
         <div className="demo">
-          <StakeButton
-            onCheck={(address: string) =>
-              blockchainProvider.fetchAccountInfo(address)
-            }
-            poolId="pool1eaeynp2hs06v4x8q65jfm2xqcd3dc80rv220gmxvwg8m5sd6e7a"
-          />
+          <div className="custom-stake-button-wrapper">
+            <StakeButton
+              onCheck={(address: string) =>
+                blockchainProvider.fetchAccountInfo(address)
+              }
+              poolId="pool1eaeynp2hs06v4x8q65jfm2xqcd3dc80rv220gmxvwg8m5sd6e7a"
+            />
+          </div>
         </div>
       </main>
 
