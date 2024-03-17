@@ -23,7 +23,7 @@ export default function Home() {
 
       <main className="main">
         <h1 className="title">
-          <a href="https://meshjs.dev/">Mesh</a> Pool Operator Portal
+          <a href="https://www.hodlerstaking.com/">Hodler</a> Delegation Portal
         </h1>
 
         <div className="demo">
