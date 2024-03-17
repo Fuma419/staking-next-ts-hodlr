@@ -31,18 +31,11 @@ export default function Home() {
             onCheck={(address: string) =>
               blockchainProvider.fetchAccountInfo(address)
             }
-            poolId="pool1mhww3q6d7qssj5j2add05r7cyr7znyswe2g6vd23anpx5sh6z8d"
+            poolId="pool1eaeynp2hs06v4x8q65jfm2xqcd3dc80rv220gmxvwg8m5sd6e7a"
           />
         </div>
 
         <div className="grid">
-          <a href="https://meshjs.dev/apis" className="card">
-            <h2>Documentation</h2>
-            <p>
-              Our documentation provide live demos and code samples; great
-              educational tool for learning how Cardano works.
-            </p>
-          </a>
 
           <a
             href="https://meshjs.dev/react/ui-components#stakeButton"
