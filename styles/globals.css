@@ -1,0 +1,18 @@
+.container {
+    background-color: #141416;
+  }
+  .main .title .accentColor {
+    color: #CEFA01;
+  }
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .demo {
+    border-radius: 30px; /* Increase this value to your preference */
+    /* other styles */
+  }
+  

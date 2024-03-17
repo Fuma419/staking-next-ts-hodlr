@@ -3,7 +3,7 @@ import { KoiosProvider } from "@meshsdk/core";
 import { StakeButton, MeshBadge } from "@meshsdk/react";
 
 export default function Home() {
-  const blockchainProvider = new KoiosProvider('api', process.env.KOIOS_API_KEY, 1);
+  const blockchainProvider = new KoiosProvider('api', process.env.KOIOS_API_KEY);
 
   return (
     <div className="container">
@@ -12,7 +12,7 @@ export default function Home() {
         <meta name="description" content="A Cardano dApp powered my Mesh" />
         <link
           rel="icon"
-          href="https://meshjs.dev/favicon/favicon-32x32.png"
+          href="https://raw.githubusercontent.com/Fuma419/HodlerStaking/main/Hodler_Green_Icon_round.png"
         />
         <link
           href="https://meshjs.dev/css/template.css"
@@ -20,10 +20,14 @@ export default function Home() {
           key="mesh-demo"
         />
       </Head>
-
       <main className="main">
+      <div className="logo-container">
+        <a href="https://www.hodlerstaking.com/" className="accentColor">
+        <img src="/images/logo.png" alt="Hodler Coalition" style={{ width: '100%', height: 'auto' }} />
+        </a>
+      </div>
         <h1 className="title">
-          <a href="https://www.hodlerstaking.com/">Hodler</a> Delegation Portal
+        <a href="https://www.hodlerstaking.com/" className="accentColor">Hodler</a> Delegation Portal
         </h1>
 
         <div className="demo">
@@ -33,28 +37,6 @@ export default function Home() {
             }
             poolId="pool1eaeynp2hs06v4x8q65jfm2xqcd3dc80rv220gmxvwg8m5sd6e7a"
           />
-        </div>
-
-        <div className="grid">
-
-          <a
-            href="https://meshjs.dev/react/ui-components#stakeButton"
-            className="card"
-          >
-            <h2>Staking Button</h2>
-            <p>
-              Learn more about the staking button that creating staking
-              transactions, and add into your website.
-            </p>
-          </a>
-
-          <a href="https://meshjs.dev/react" className="card">
-            <h2>React components</h2>
-            <p>
-              Useful React UI components and hooks, seamlessly integrate them
-              into your app, and bring the user interface to life.
-            </p>
-          </a>
         </div>
       </main>
 
