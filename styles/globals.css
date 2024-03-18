@@ -16,6 +16,7 @@
 .main .title .accentColor {
   color: #CEFA01;
   font-family: 'Orbitron', sans-serif;
+  font-size: 50px;
   font-weight: 200;
   letter-spacing: 10pt;
 }
@@ -24,6 +25,7 @@
   font-family: 'Barlow', sans-serif;
   font-weight: 200;
   letter-spacing: 5pt;
+  font-size: 50px;
 }
 
 .logo-container {
@@ -38,6 +40,7 @@
     max-height: 150px; /* Maximum height of the image */
     width: 100%; /* Responsive width */
     height: auto; /* Maintain aspect ratio */
+    padding: 20px;
   }
   
 
@@ -72,7 +75,7 @@
   border-radius: 4px;
   background-color: #141416;
   color: #fff;
-  font-size: 16px;
+  font-size: 30px;
   cursor: pointer;
   margin-left: 40px; /* Uniform margin for all sides will center buttons and create space between them */
   margin-right: 40px;
@@ -85,7 +88,7 @@
 /* Media queries for responsive adjustments */
 @media (max-width: 768px) {
   .title {
-    font-size: 40px; /* Smaller font size for mobile devices */
+    font-size: 30px; /* Smaller font size for mobile devices */
   }
 
   .custom-stake-button-wrapper {
@@ -94,7 +97,7 @@
 
   .custom-button {
     padding: 10px 20px; /* Smaller padding for mobile devices */
-    font-size: 14px; /* Smaller font size for mobile devices */
+    font-size: 16px; /* Smaller font size for mobile devices */
     margin: 10px; /* Increase margin if needed for mobile devices */
   }
 }
