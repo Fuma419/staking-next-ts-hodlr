@@ -6,7 +6,7 @@
 .main {
     display: flex;
     justify-content: flex-start; /* Align content to the top */
-    height: 100%;
+
     /* other styles */
   }
 
@@ -20,7 +20,6 @@
     letter-spacing: 10pt; /* Adjust the space between chars as needed */
   }
   .main .title {
-    padding:10px;
     font-family: 'barlow', sans-serif;
     font-weight: 200; /* Adjust the font weight as needed, the lower the number, the lighter the font */
     letter-spacing: 5pt; /* Adjust the space between chars as needed */
