@@ -53,11 +53,13 @@ export default function Home() {
         </h1>
         <div className="demo">
         <div className="custom-stake-button-wrapper">
-          <StakeButton
-            onCheck={handleCheck}
-            poolId="pool1eaeynp2hs06v4x8q65jfm2xqcd3dc80rv220gmxvwg8m5sd6e7a"
-          />
-        </div>
+            <StakeButton
+              onCheck={(address: string) =>
+                blockchainProvider.fetchAccountInfo(address)
+              }
+              poolId="pool1eaeynp2hs06v4x8q65jfm2xqcd3dc80rv220gmxvwg8m5sd6e7a"
+            />
+          </div>
         {/* New styled button container */}
         <div className="button-container">
           <button
