@@ -26,15 +26,15 @@ export default function Home() {
             display: 'flex', 
             justifyContent: 'center', 
             alignItems: 'center', 
-            height: '50vh',
+            height: 'auto',
             padding: '50px', // Reduced padding, consider using variable or state for responsive padding
             boxSizing: 'border-box'
           }}>
-          <a href="https://www.hodlerstaking.com/" className="accentColor">
+          <a href="https://www.hodlerstaking.com/">
             <img src="/images/Logo_icon_green.svg" alt="Hodler Coalition" style={{ width: '100%', height: 'auto' }} />
           </a>
         </div>
-        <h1 className="title" style={{ padding: '10px', height: 'auto' }}>
+        <h1 className="title">
           <a href="https://www.hodlerstaking.com/" className="accentColor">HODLER</a> Delegation Portal
         </h1>
         <div className="demo">

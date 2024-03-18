@@ -17,9 +17,16 @@
     color: #CEFA01;
   }
   .main .title {
+    padding:10px;
     font-family: 'Orbitron', sans-serif;
     font-weight: 200; /* Adjust the font weight as needed, the lower the number, the lighter the font */
     letter-spacing: 10pt; /* Adjust the space between chars as needed */
+  }
+
+  @media (max-width: 768px) {
+    .title {
+      font-size: 40px; /* Smaller font size for mobile devices */
+    }
   }
 
   .logo-container {
@@ -29,7 +36,7 @@
   }
 
   .custom-stake-button-wrapper {
-    padding-bottom: 20px; /* Adjust the padding as needed */
+    padding-bottom: 350px; /* Adjust the padding as needed */
     border-radius: 20px; /* Adjust the border-radius as needed */
   }
   
