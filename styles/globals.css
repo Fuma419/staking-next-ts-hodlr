@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&display=swap');
 
-.custom-stake-button,
-.custom-stake-button:hover,
-.custom-stake-button:active,
-.custom-stake-button:focus,
-.custom-stake-button:visited {
+.custom-stake-button a,           /* if it's wrapped in an <a> tag */
+.custom-stake-button a:visited,   /* to override visited link color */
+.custom-stake-button a:hover,
+.custom-stake-button a:active,
+.custom-stake-button a:focus {
   color: #141416 !important; /* Replace with your desired font color */
-  /* Additional reset styles for pseudo-classes */
+  text-decoration: none; /* if you want to remove underline from links */
 }
 
 /* Existing global styles */
