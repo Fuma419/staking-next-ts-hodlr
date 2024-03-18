@@ -95,8 +95,34 @@
   background-color: #444;
 }
 
+
 /* Media queries for responsive adjustments */
 @media (max-width: 768px) {
+    /* Adjustments for main title and accent */
+.main .title .accentColor {
+    color: #CEFA01;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 35px;
+    font-weight: 200;
+    letter-spacing: 10pt;
+  }
+  
+  .main .title {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 200;
+    letter-spacing: 5pt;
+    font-size: 35px;
+  }
+    .logo-container img {
+        width: auto;
+        max-width: 90px; /* Adjust if necessary */
+        }
+    .logo-container img a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        }
   .title {
     font-size: 30px; /* Smaller font size for mobile devices */
   }
@@ -106,7 +132,7 @@
   }
 
   .custom-button {
-    padding: 10px 20px; /* Smaller padding for mobile devices */
+    padding: 20px; /* Smaller padding for mobile devices */
     font-size: 16px; /* Smaller font size for mobile devices */
     margin: 10px; /* Increase margin if needed for mobile devices */
   }

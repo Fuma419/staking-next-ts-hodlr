@@ -7,7 +7,7 @@ import { toast } from 'react-toastify'; // Keep the toast import for calling toa
 export default function Home() {
   const blockchainProvider = new KoiosProvider("api", process.env.NEXT_PUBLIC_KOIOS_API_KEY);
 
-  const handleCheck = async (address) => {
+/*   const handleCheck = async (address) => {
     console.log("handleCheck called with address:", address); // Ensure this logs
     try {
       const info = await blockchainProvider.fetchAccountInfo(address);
@@ -16,7 +16,7 @@ export default function Home() {
       console.log("Error caught:", err.message); // Make sure errors are caught
       toast.error(err.message || "An unexpected error occurred");
     }
-  };  
+  };   */
 
   return (
     <div className="container">
@@ -41,7 +41,7 @@ export default function Home() {
             justifyContent: 'center', 
             alignItems: 'center', 
             height: 'auto',
-            padding: '50px',
+            padding: '40px',
             boxSizing: 'border-box'
           }}>
           <a href="https://www.hodlerstaking.com/">
