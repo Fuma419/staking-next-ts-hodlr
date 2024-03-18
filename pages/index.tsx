@@ -14,7 +14,7 @@ export default function Home() {
           rel="icon"
           href="https://raw.githubusercontent.com/Fuma419/HodlerStaking/main/Hodler_Green_Icon_round.png"
         />
-        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"></link>
+
         <link
           href="https://meshjs.dev/css/template.css"
           rel="stylesheet"
@@ -34,7 +34,7 @@ export default function Home() {
             <img src="/images/Logo_icon_green.svg" alt="Hodler Coalition" style={{ width: '100%', height: 'auto' }} />
           </a>
         </div>
-        <h1 className="title">
+        <h1 className="title" style={{ padding: '10px', height: 'auto' }}>
           <a href="https://www.hodlerstaking.com/" className="accentColor">HODLER</a> Delegation Portal
         </h1>
         <div className="demo">
