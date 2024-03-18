@@ -40,7 +40,41 @@
   .custom-stake-button-wrapper {
     padding-bottom: 350px; /* Adjust the padding as needed */
     border-radius: 20px; /* Adjust the border-radius as needed */
+    justify-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
-  
+
+  /* Example to increase z-index, add this to your styles */
+.Toastify__toast-container {
+    z-index: 9999;
+  }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px; 
+      }
+    
+      .custom-button {
+        font-family: 'barlow', sans-serif;
+        letter-spacing: 2pt;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 4px;
+        background-color: #141416;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        margin-left: 50%; 
+        margin-right: 50%; 
+        /* Remove margin-right if using gap, or adjust as needed if you prefer margin-right */
+      }
+    
+      .custom-button:hover {
+        background-color: #444; /* // Use a slightly lighter or darker color for hover */
+      }
   
   
