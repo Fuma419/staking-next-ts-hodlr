@@ -1,8 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 200; /* Adjust the font weight as needed, the lower the number, the lighter the font */
+    letter-spacing: 1cap; /* Adjust the space between chars as needed */
+}
+
+/* Adjust padding for smaller screens */
+@media (max-width: 768px) {
+    .logo-container {
+      padding: 20px; /* Reduced padding for mobile */
+    }
+  }
+  
 .main {
     display: flex;
     flex-direction: column;
     justify-content: flex-start; /* Align content to the top */
-    padding-top: 10%; /* Push content down by 25% of the parent's height */
+    padding-top: 5%; /* Push content down by 25% of the parent's height */
     height: 100%;
     /* other styles */
   }
@@ -25,5 +40,6 @@
     border-radius: 10px; /* Adjust the border-radius as needed */
     overflow: hidden; /* To ensure the border-radius applies to children */
   }
+  
   
   
