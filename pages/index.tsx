@@ -41,7 +41,7 @@ export default function Home() {
             justifyContent: 'center', 
             alignItems: 'center', 
             height: 'auto',
-            padding: '50px', // Reduced padding, consider using variable or state for responsive padding
+            padding: '50px',
             boxSizing: 'border-box'
           }}>
           <a href="https://www.hodlerstaking.com/">

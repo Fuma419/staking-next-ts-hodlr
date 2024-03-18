@@ -27,13 +27,22 @@
 }
 
 .logo-container {
+    
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.logo-container img {
+    max-width: 150px; /* Maximum width of the image */
+    max-height: 150px; /* Maximum height of the image */
+    width: 100%; /* Responsive width */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+
 .custom-stake-button-wrapper {
-  padding-bottom: 320px;
+  padding-bottom: 300px;
   border-radius: 20px;
   display: flex;
   justify-content: center;
@@ -46,11 +55,14 @@
 }
 
 .button-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
-}
+    position: absolute;
+    bottom: 0; /* This aligns the container to the bottom of the .main */
+    left: 0; /* Aligns to the left */
+    width: 100%; /* Spans the full width of .main */
+    display: flex;
+    justify-content: center; /* This centers the buttons in the container */
+    padding: 20px 0; /* Gives some space from the bottom edge */
+  }
 
 .custom-button {
   font-family: 'Barlow', sans-serif;
