@@ -60,6 +60,7 @@ export default function Home() {
               poolId="pool1eaeynp2hs06v4x8q65jfm2xqcd3dc80rv220gmxvwg8m5sd6e7a"
             />
           </div>
+          </div>
         {/* New styled button container */}
         <div className="button-container">
           <button
@@ -75,7 +76,6 @@ export default function Home() {
             Enter the Cardanoverse
           </button>
         </div>
-      </div>
     </main>
 
       <footer className="footer">
