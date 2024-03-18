@@ -1,6 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&display=swap');
 
+.custom-stake-button,
+.custom-stake-button:hover,
+.custom-stake-button:active,
+.custom-stake-button:focus,
+.custom-stake-button:visited {
+  color: #141416 !important; /* Replace with your desired font color */
+  /* Additional reset styles for pseudo-classes */
+}
+
 /* Existing global styles */
 .container {
   background-color: #141416;
@@ -41,6 +50,7 @@
     width: 100%; /* Responsive width */
     height: auto; /* Maintain aspect ratio */
     padding: 20px;
+    margin: auto;
   }
   
 
