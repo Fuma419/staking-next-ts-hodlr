@@ -52,7 +52,10 @@ export default function Home() {
           Welcome, <a href="https://www.hodlerstaking.com/" className="accentColor">HODLER</a> 
         </h1>
         <div className="demo">
-        <div className="custom-stake-button-wrapper">
+        <div className="stake-message">
+          Mobile browser support coming soon. Please return from a desktop or mobile wallet.
+        </div>
+        <div className="custom-stake-button">
             <StakeButton
               onCheck={(address: string) =>
                 blockchainProvider.fetchAccountInfo(address)
@@ -60,7 +63,7 @@ export default function Home() {
               poolId="pool1eaeynp2hs06v4x8q65jfm2xqcd3dc80rv220gmxvwg8m5sd6e7a"
             />
           </div>
-          </div>
+        </div>
         {/* New styled button container */}
         <div className="button-container">
           <button

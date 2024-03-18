@@ -1,15 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&display=swap');
 
-.custom-stake-button a,           /* if it's wrapped in an <a> tag */
-.custom-stake-button a:visited,   /* to override visited link color */
-.custom-stake-button a:hover,
-.custom-stake-button a:active,
-.custom-stake-button a:focus {
-  color: #141416 !important; /* Replace with your desired font color */
-  text-decoration: none; /* if you want to remove underline from links */
-}
-
 /* Existing global styles */
 .container {
   background-color: #141416;
@@ -95,6 +86,14 @@
   background-color: #444;
 }
 
+/* Hide the message by default */
+.stake-message {
+    display: none;
+    color: #fff; /* Adjust the color to fit your design */
+    padding: 20px;
+    text-align: center;
+    font-size: 16px; /* Adjust the size as needed */
+  }
 
 /* Media queries for responsive adjustments */
 @media (max-width: 768px) {
@@ -122,6 +121,23 @@
         justify-content: center;
         align-items: center;
         margin: auto;
+        }
+    .custom-stake-button {
+        display: none;
+        }
+    
+        /* Show the message on mobile */
+        .stake-message {
+        display: block;
+        font-family: 'Barlow', sans-serif;
+        letter-spacing: 1pt;
+        padding:50px;
+        border: none;
+        border-radius: 4px;
+        background-color: #141416;
+        color: #fff;
+        font-size: 25px;
+        cursor: pointer;
         }
   .title {
     font-size: 30px; /* Smaller font size for mobile devices */
