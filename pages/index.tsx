@@ -35,7 +35,7 @@ export default function Home() {
           </a>
         </div>
         <h1 className="title">
-          <a href="https://www.hodlerstaking.com/" className="accentColor">HODLER</a> Delegation Portal
+          Welcome, <a href="https://www.hodlerstaking.com/" className="accentColor">HODLER</a> 
         </h1>
         <div className="demo">
           <div className="custom-stake-button-wrapper">
