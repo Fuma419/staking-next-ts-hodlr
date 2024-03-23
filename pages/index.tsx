@@ -50,7 +50,7 @@ export default function Home() {
           Welcome, <a href="https://www.hodlerstaking.com/" className="accentColor">HODLER</a> 
         </h1>
         <div className="balance">
-          Wallet Balance: {accountBalance ? `₳ ${accountBalance}` : '₳ 0'}
+          Wallet Balance: {accountBalance ? `₳ ${Number(accountBalance).toLocaleString()}` : '₳ 0'}
         </div>
         <div className="demo">
           <div className="stake-message">
