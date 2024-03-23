@@ -39,7 +39,7 @@
 .balance {
   color: #fff;
   font-family: 'Orbitron', sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 200;
   letter-spacing: 3pt;
   padding-top: 40pt;
@@ -99,7 +99,7 @@
   padding: 15px 30px;
   border: none;
   border-radius: 4px;
-  background-color: #141416;
+  background-color: transparent;
   color: #fff;
   font-size: 25px;
   cursor: pointer;
