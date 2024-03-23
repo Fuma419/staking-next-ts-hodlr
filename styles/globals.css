@@ -21,6 +21,16 @@
   letter-spacing: 10pt;
 }
 
+/* Adjustments for main title and accent */
+.balance {
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 20px;
+  font-weight: 200;
+  letter-spacing: 3pt;
+  padding-top: 40pt;
+}
+
 .main .title {
   font-family: 'Barlow', sans-serif;
   font-weight: 200;
@@ -47,6 +57,7 @@
 
 .custom-stake-button-wrapper {
   padding-bottom: 300px;
+  padding-top: 10px;
   border-radius: 20px;
   display: flex;
   justify-content: center;
@@ -125,6 +136,9 @@
     .custom-stake-button {
         display: none;
         }
+    .balance {
+      display: none;
+      }
     
         /* Show the message on mobile */
         .stake-message {
