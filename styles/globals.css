@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Assuming this is in your global.css or a similar file */
+.backgroundImage {
+  background-image: url('/images/background.jpg');
+  background-size: cover;
+  background-position: center;
+}
 
 /* Existing global styles */
 .container {
@@ -10,6 +20,10 @@
   display: flex;
   justify-content: flex-start; /* Align content to the top */
   /* other styles */
+}
+
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
 
 /* Adjustments for main title and accent */
@@ -104,8 +118,20 @@
     padding: 20px;
     text-align: center;
     font-size: 16px; /* Adjust the size as needed */
+
   }
 
+.custom-stake-button button {
+    background-image: linear-gradient(to right, #CEFA01, #ccfa01be);
+    font-family: 'Barlow', sans-serif;
+    width: auto;
+    height: 50pt;
+    letter-spacing: 2pt;
+    font-size: 25px;
+
+    
+    /* Add other styles as needed */
+  }
 /* Media queries for responsive adjustments */
 @media (max-width: 768px) {
     /* Adjustments for main title and accent */
@@ -145,7 +171,6 @@
         display: block;
         font-family: 'Barlow', sans-serif;
         letter-spacing: 1pt;
-        background-color: #141416;
         color: #fff;
         font-size: 25px;
         cursor: pointer;

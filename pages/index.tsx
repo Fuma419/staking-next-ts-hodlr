@@ -25,7 +25,7 @@ export default function Home() {
   };
 
   return (
-    <div className="container">
+    <div className="container backgroundImage">
       <Head>
         <title>Mesh App on Cardano</title>
         <meta name="description" content="A Cardano dApp powered by Mesh" />
