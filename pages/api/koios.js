@@ -8,11 +8,11 @@ export default async function handler(req, res) {
 
     try {
       const koiosProvider = new KoiosProvider('api', apiKey);
-      console.log(koiosProvider);
+      // console.log(koiosProvider);
 
       const data = await koiosProvider.fetchAccountInfo(address);
       
-      console.log(data);
+      // console.log(data);
 
       // Assuming the data fetched directly can be returned as a JSON response.
       res.status(200).json(data);
