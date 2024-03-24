@@ -42,7 +42,8 @@
   font-size: 22px;
   font-weight: 200;
   letter-spacing: 3pt;
-  padding-top: 40pt;
+  padding-bottom: 50pt;
+  text-align: center;
 }
 
 .main .title {
