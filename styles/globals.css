@@ -209,6 +209,6 @@
     padding: 12px; /* Smaller padding for mobile devices */
     font-size: 20px; /* Smaller font size for mobile devices */
     margin: 10px; /* Increase margin if needed for mobile devices */
-    outline: .5px solid white; /* Adjust the outline width as needed */
+    outline: 1px solid white; /* Adjust the outline width as needed */
   }
 }
