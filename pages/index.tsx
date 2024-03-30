@@ -34,10 +34,11 @@ export default function Home() {
   return (
     <div className="container backgroundImage">
       <Head>
-        <title>Mesh App on Cardano</title>
-        <meta name="description" content="A Cardano dApp powered by Mesh" />
-        <link rel="icon" href="https://raw.githubusercontent.com/Fuma419/HodlerStaking/main/Hodler_Green_Icon_round.png"/>
         <link href="https://meshjs.dev/css/template.css" rel="stylesheet" key="mesh-demo" />
+        <title>CNC Group Delegation</title>
+        <meta name="description" content="CNC Group Delegation - powered by Mesh" />
+        {/* <link rel="icon" href="https://raw.githubusercontent.com/Fuma419/HodlerStaking/main/Hodler_Green_Icon_round.png"/> */}
+      
       </Head>
       
       <main className="main">
