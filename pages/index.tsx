@@ -74,15 +74,6 @@ export default function Home() {
           <select className="custom-stake-button"
               value={delegatedPoolID}
               onChange={(e) => setDelegatedPoolID(e.target.value)}
-              style={{
-                display: 'flex', 
-                justifyContent: 'center', 
-                alignItems: 'center', 
-                padding: '10px',
-                borderRadius: '6px',
-                height: 'auto',
-                borderColor: 'black',
-              }}
             >
               {Object.entries(poolOptions).map(([name, id]) => (
               <option key={id.toString()} value={id.toString()}>
