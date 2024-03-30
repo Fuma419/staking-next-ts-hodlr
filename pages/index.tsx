@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from "next/head"; // Make sure to import Head from next/head
 import { StakeButton, MeshBadge } from '@meshsdk/react';
 import { toast } from 'react-toastify';
@@ -7,8 +7,15 @@ export default function Home() {
 
   const [selectedAddress, setSelectedAddress] = useState('');
   const [accountBalance, setAccountBalance] = useState(0);
-  const [delegatedPoolID, setDelegatedPoolID] = useState(0);
-  
+  const [delegatedPoolID, setDelegatedPoolID] = useState('');
+  const [poolList, setPoolList] = useState([]);
+
+  useEffect(() => {
+    fetch('https://raw.githubusercontent.com/CNC-Alliance/CNC-Members/main/CNC_Alliance.json')
+      .then(response => response.json())
+      .then(data => setPoolList(data))
+      .catch(error => console.error('Error fetching pool list:', error));
+  }, []);
 
   const fetchAccountInfo = async () => {
     if (!selectedAddress) {
@@ -23,7 +30,7 @@ export default function Home() {
       }
       const info = await response.json();
       const balance = info.balance ? Number(info.balance) / 1000000 : 0; // Adjust based on the actual structure and ensure fallback
-      const pool = Number(info.poolId)
+      const pool = info.poolId ? info.poolId : '';
       setAccountBalance(balance);
       setDelegatedPoolID(pool);
     } catch (error) {
@@ -37,8 +44,6 @@ export default function Home() {
         <link href="https://meshjs.dev/css/template.css" rel="stylesheet" key="mesh-demo" />
         <title>CNC Group Delegation</title>
         <meta name="description" content="CNC Group Delegation - powered by Mesh" />
-        {/* <link rel="icon" href="https://raw.githubusercontent.com/Fuma419/HodlerStaking/main/Hodler_Green_Icon_round.png"/> */}
-      
       </Head>
       
       <main className="main">
@@ -57,12 +62,28 @@ export default function Home() {
 {/*         <h1 className="title">
           Delegate for a <a className="accentColor">greener</a> Cardano 
         </h1> */}
+        {/* Logo and other elements remain the same */}
+                    {/* Dropdown for selecting pool */}
+                    <select
+              value={delegatedPoolID}
+              onChange={(e) => setDelegatedPoolID(e.target.value)}
+              style={{
+                marginLeft: '10px',
+                padding: '10px 20px',
+                borderRadius: '6px',
+                border: 'none',
+              }}
+            >
+              {poolList.map((poolId) => (
+                <option key={poolId} value={poolId}>
+                  {poolId}
+                </option>
+              ))}
+            </select>
         <div className="demo">
-          <div className="stake-message">
-            Mobile browser support coming soon. Please return from a desktop or mobile wallet.
-          </div>
-          <div className="custom-stake-button">
+        <div className="custom-stake-button">
             <StakeButton
+              poolId={delegatedPoolID} // Use the selected pool ID from the dropdown
               onCheck={(address: string) => {
                 return new Promise((resolve, reject) => {
                   fetch(`/api/koios?address=${address}`)
@@ -79,10 +100,9 @@ export default function Home() {
                     });
                 });
               }}
-              poolId="pool1eaeynp2hs06v4x8q65jfm2xqcd3dc80rv220gmxvwg8m5sd6e7a"
             />
-          </div>
-          </div>
+            </div>
+            </div>
           <div>
           {selectedAddress && (
               <>

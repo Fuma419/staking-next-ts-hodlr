@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&display=swap');
+
+@import url('http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic&subset=latin,latin-ext');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -29,7 +29,7 @@
 /* Adjustments for main title and accent */
 .main .title .accentColor {
   color: rgb(27, 80, 55);
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Noto+Sans', sans-serif;
   font-size: 50px;
   font-weight: 200;
   letter-spacing: 10pt;
@@ -38,7 +38,7 @@
 /* Adjustments for main title and accent */
 .balance {
   color: #fff;
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Noto+Sans', sans-serif;
   font-size: 22px;
   font-weight: 200;
   letter-spacing: 3pt;
@@ -47,7 +47,7 @@
 }
 
 .main .title {
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Noto+Sans', sans-serif;
   font-weight: 200;
   letter-spacing: 5pt;
   font-size: 50px;
@@ -95,7 +95,7 @@
   }
 
 .custom-button {
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Noto+Sans', sans-serif;
   letter-spacing: 2pt;
   padding: 15px 30px;
   border: none;
@@ -125,7 +125,7 @@
 .custom-stake-button button {
     /* background-image: linear-gradient(to right, rgb(27, 80, 55),rgb(27, 80, 55)); */
     background-color: rgb(255, 255, 255);
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Noto+Sans', sans-serif;
     width: auto;
     height: 50pt;
     letter-spacing: 2pt;
@@ -139,14 +139,14 @@
     /* Adjustments for main title and accent */
 .main .title .accentColor {
     color: rgb(27, 80, 55);
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Noto+Sans', sans-serif;
     font-size: 35px;
     font-weight: 200;
     letter-spacing: 5pt;
   }
   
   .main .title {
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Noto+Sans', sans-serif;
     font-weight: 200;
     letter-spacing: 5pt;
     font-size: 35px;
@@ -171,7 +171,7 @@
         /* Show the message on mobile */
         .stake-message {
         display: block;
-        font-family: 'Barlow', sans-serif;
+        font-family: 'Noto+Sans', sans-serif;
         letter-spacing: 1pt;
         color: #fff;
         font-size: 25px;
