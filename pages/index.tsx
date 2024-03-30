@@ -75,16 +75,13 @@ export default function Home() {
               value={delegatedPoolID}
               onChange={(e) => setDelegatedPoolID(e.target.value)}
               style={{
-                fontSize: '110%',
-                fontWeight: 'bold',
                 display: 'flex', 
                 justifyContent: 'center', 
                 alignItems: 'center', 
-                padding: '20px',
+                padding: '10px',
                 borderRadius: '6px',
                 height: 'auto',
                 borderColor: 'black',
-                fontOpticalSizing: 'auto',
               }}
             >
               {Object.entries(poolOptions).map(([name, id]) => (
@@ -140,13 +137,13 @@ export default function Home() {
             Back
           </button>
           <button className="custom-button" onClick={() => window.location.href = 'https://cexplorer.io/list/0bcecc46bb5231ae'}>
-            Enter the Cardanoverse
+            To the Cardanoverse
           </button>
         </div>
       </main>
 
       <footer className="footer">
-        <MeshBadge dark={true} />
+        <MeshBadge dark={false} />
       </footer>
     </div>
   );

@@ -105,8 +105,9 @@
   color: #fff;
   font-size: 25px;
   cursor: pointer;
-  margin-left: 40px; /* Uniform margin for all sides will center buttons and create space between them */
-  margin-right: 40px;
+  margin-left: 30px; /* Uniform margin for all sides will center buttons and create space between them */
+  margin-right: 30px;
+  outline: 1px solid white; /* Adjust the outline width as needed */
 }
 
 .custom-button:hover {
@@ -131,6 +132,19 @@
     height: 50pt;
     letter-spacing: 2pt;
     font-size: 25px;
+
+    
+    /* Add other styles as needed */
+  }
+
+  .custom-stake-button select {
+    /* background-image: linear-gradient(to right, rgb(27, 80, 55),rgb(27, 80, 55)); */
+    background-color: rgb(255, 255, 255);
+    font-family: 'Noto+Sans', sans-serif;
+    width: auto;
+    min-height: 40pt;
+    letter-spacing: 2pt;
+    font-size: 20px;
 
     
     /* Add other styles as needed */
@@ -190,8 +204,10 @@
   }
 
   .custom-button {
+    min-width: 30%;
     padding: 20px; /* Smaller padding for mobile devices */
-    font-size: 16px; /* Smaller font size for mobile devices */
+    font-size: 20px; /* Smaller font size for mobile devices */
     margin: 10px; /* Increase margin if needed for mobile devices */
+    outline: 2px solid white; /* Adjust the outline width as needed */
   }
 }
