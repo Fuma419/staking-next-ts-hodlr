@@ -70,7 +70,8 @@ export default function Home() {
         </h1> */}
         {/* Logo and other elements remain the same */}
                     {/* Dropdown for selecting pool */}
-                    <select className="custom-stake-button"
+        <div className="custom-stake-button">
+          <select className="custom-stake-button"
               value={delegatedPoolID}
               onChange={(e) => setDelegatedPoolID(e.target.value)}
               style={{
@@ -92,7 +93,11 @@ export default function Home() {
               </option>
             ))}
           </select>
+        </div>
         <div className="demo">
+        <div className="stake-message">
+            Mobile browser support coming soon. Please return from a desktop or mobile wallet.
+          </div>
         <div className="custom-stake-button">
             <StakeButton
               poolId={delegatedPoolID} // Use the selected pool ID from the dropdown

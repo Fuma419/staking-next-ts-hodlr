@@ -165,6 +165,9 @@
     .custom-stake-button {
         display: none;
         }
+    .custom-stake-button select {
+      display: none;
+      }
     .balance {
       display: none;
       }
