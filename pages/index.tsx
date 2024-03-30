@@ -8,13 +8,19 @@ export default function Home() {
   const [selectedAddress, setSelectedAddress] = useState('');
   const [accountBalance, setAccountBalance] = useState(0);
   const [delegatedPoolID, setDelegatedPoolID] = useState('');
-  const [poolList, setPoolList] = useState([]);
+  const [poolOptions, setPoolOptions] = useState({});
 
   useEffect(() => {
-    fetch('https://raw.githubusercontent.com/CNC-Alliance/CNC-Members/main/CNC_Alliance.json')
-      .then(response => response.json())
-      .then(data => setPoolList(data))
-      .catch(error => console.error('Error fetching pool list:', error));
+    // Fetch the local JSON file
+    fetch('/pools.json')
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok ' + response.statusText);
+      }
+      return response.json();
+    })
+    .then(data => setPoolOptions(data))
+    .catch(error => console.error('Error loading pool options:', error));
   }, []);
 
   const fetchAccountInfo = async () => {
@@ -64,22 +70,28 @@ export default function Home() {
         </h1> */}
         {/* Logo and other elements remain the same */}
                     {/* Dropdown for selecting pool */}
-                    <select
+                    <select className="custom-stake-button"
               value={delegatedPoolID}
               onChange={(e) => setDelegatedPoolID(e.target.value)}
               style={{
-                marginLeft: '10px',
-                padding: '10px 20px',
+                fontSize: '110%',
+                fontWeight: 'bold',
+                display: 'flex', 
+                justifyContent: 'center', 
+                alignItems: 'center', 
+                padding: '20px',
                 borderRadius: '6px',
-                border: 'none',
+                height: 'auto',
+                borderColor: 'black',
+                fontOpticalSizing: 'auto',
               }}
             >
-              {poolList.map((poolId) => (
-                <option key={poolId} value={poolId}>
-                  {poolId}
-                </option>
-              ))}
-            </select>
+              {Object.entries(poolOptions).map(([name, id]) => (
+              <option key={id.toString()} value={id.toString()}>
+                {name}
+              </option>
+            ))}
+          </select>
         <div className="demo">
         <div className="custom-stake-button">
             <StakeButton
