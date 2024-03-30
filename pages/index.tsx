@@ -49,13 +49,13 @@ export default function Home() {
             padding: '40px',
             boxSizing: 'border-box'
           }}>
-          <a href="https://www.hodlerstaking.com/">
-            <img src="/images/Logo_icon_green.svg" alt="Hodler Coalition" style={{ width: '100%', height: 'auto' }} />
+          <a href="https://climateneutralcardano.org/">
+            <img src="/images/logo_icon.png" alt="Climate Neutral Cardano" style={{ width: '100%', height: 'auto' }} />
           </a>
         </div>
-        <h1 className="title">
-          Welcome, <a href="https://www.hodlerstaking.com/" className="accentColor">HODLER</a> 
-        </h1>
+{/*         <h1 className="title">
+          Delegate for a <a className="accentColor">greener</a> Cardano 
+        </h1> */}
         <div className="demo">
           <div className="stake-message">
             Mobile browser support coming soon. Please return from a desktop or mobile wallet.
@@ -98,10 +98,10 @@ export default function Home() {
             )}
         </div>
         <div className="button-container">
-          <button className="custom-button" onClick={() => window.location.href = 'https://www.hodlerstaking.com/'}>
+          <button className="custom-button" onClick={() => window.location.href = 'https://climateneutralcardano.org/'}>
             Back
           </button>
-          <button className="custom-button" onClick={() => window.location.href = 'https://cexplorer.io/pool/pool1eaeynp2hs06v4x8q65jfm2xqcd3dc80rv220gmxvwg8m5sd6e7a'}>
+          <button className="custom-button" onClick={() => window.location.href = 'https://cexplorer.io/list/0bcecc46bb5231ae'}>
             Enter the Cardanoverse
           </button>
         </div>

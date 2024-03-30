@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
@@ -6,7 +6,7 @@
 
 /* Assuming this is in your global.css or a similar file */
 .backgroundImage {
-  background-image: url('/images/background.jpg');
+  background-image: url('/images/background.png');
   background-size: cover;
   background-position: center;
 }
@@ -28,8 +28,8 @@
 
 /* Adjustments for main title and accent */
 .main .title .accentColor {
-  color: #CEFA01;
-  font-family: 'Orbitron', sans-serif;
+  color: rgb(27, 80, 55);
+  font-family: 'Barlow', sans-serif;
   font-size: 50px;
   font-weight: 200;
   letter-spacing: 10pt;
@@ -38,7 +38,7 @@
 /* Adjustments for main title and accent */
 .balance {
   color: #fff;
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Barlow', sans-serif;
   font-size: 22px;
   font-weight: 200;
   letter-spacing: 3pt;
@@ -61,7 +61,7 @@
 }
 
 .logo-container img {
-    max-width: 150px; /* Maximum width of the image */
+    max-width: 400px; /* Maximum width of the image */
     max-height: 150px; /* Maximum height of the image */
     width: 100%; /* Responsive width */
     height: auto; /* Maintain aspect ratio */
@@ -123,7 +123,8 @@
   }
 
 .custom-stake-button button {
-    background-image: linear-gradient(to right, #CEFA01, #ccfa01be);
+    /* background-image: linear-gradient(to right, rgb(27, 80, 55),rgb(27, 80, 55)); */
+    background-color: rgb(255, 255, 255);
     font-family: 'Barlow', sans-serif;
     width: auto;
     height: 50pt;
@@ -137,11 +138,11 @@
 @media (max-width: 768px) {
     /* Adjustments for main title and accent */
 .main .title .accentColor {
-    color: #CEFA01;
-    font-family: 'Orbitron', sans-serif;
+    color: rgb(27, 80, 55);
+    font-family: 'Barlow', sans-serif;
     font-size: 35px;
     font-weight: 200;
-    letter-spacing: 10pt;
+    letter-spacing: 5pt;
   }
   
   .main .title {
@@ -152,7 +153,7 @@
   }
     .logo-container img {
         width: auto;
-        max-width: 90px; /* Adjust if necessary */
+        max-width: 200px; /* Adjust if necessary */
         }
     .logo-container img a{
         display: flex;
