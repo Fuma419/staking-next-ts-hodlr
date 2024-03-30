@@ -79,6 +79,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  background-color: rgba(255, 255, 255, 0.75);
 }
 
 .Toastify__toast-container {
@@ -126,18 +127,17 @@
 
 .custom-stake-button button {
     /* background-image: linear-gradient(to right, rgb(27, 80, 55),rgb(27, 80, 55)); */
-    background-color: rgb(255, 255, 255);
     font-family: 'Noto+Sans', sans-serif;
     border-color: rgba(0, 0, 255, 0.252);
     width: auto;
     height: 50pt;
     letter-spacing: 2pt;
     font-size: 25px;
+    background-color: rgba(255, 255, 255, 0.75);
   }
 
   .custom-stake-button select {
     /* background-image: linear-gradient(to right, rgb(27, 80, 55),rgb(27, 80, 55)); */
-    background-color: rgb(255, 255, 255);
     border-radius: 6px;
     border-color: rgba(0, 0, 255, 0.252);
     padding: 7pt;
@@ -146,7 +146,7 @@
     min-height: 45pt;
     letter-spacing: 1pt;
     font-size: 25px;
-
+    background-color: rgba(255, 255, 255, 0.75);
     
     /* Add other styles as needed */
   }
