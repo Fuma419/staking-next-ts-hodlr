@@ -7,7 +7,7 @@
 
 /* Assuming this is in your global.css or a similar file */
 .backgroundImage {
-  background-image: url('/images/background.png');
+  background-image: url('/images/background.webp');
   background-size: cover;
   background-position: center;
 }
@@ -79,7 +79,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255, 0.40);
 }
 
 .Toastify__toast-container {
@@ -133,7 +133,7 @@
     height: 50pt;
     letter-spacing: 2pt;
     font-size: 25px;
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: rgba(255, 255, 255, 0.40);
   }
 
   .custom-stake-button select {
@@ -146,7 +146,7 @@
     min-height: 45pt;
     letter-spacing: 1pt;
     font-size: 25px;
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: rgba(255, 255, 255, 0.40);
     
     /* Add other styles as needed */
   }
