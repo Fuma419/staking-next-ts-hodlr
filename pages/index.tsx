@@ -15,9 +15,9 @@ export default function Home() {
     <div className="container backgroundImage">
       <Document>
         <title>Mesh App on Cardano</title>
-        <meta name="description" content="A Cardano dApp powered by Mesh" />
+        <meta name="description" content="A simple Web3 Delegation Tool by HODLR" />
         <link rel="icon" href="https://raw.githubusercontent.com/Fuma419/HodlerStaking/main/Hodler_Green_Icon_round.png"/>
-        <link href="https://meshjs.dev/css/template.css" rel="stylesheet" key="mesh-demo" />
+
       </Document>
       
       <main className="main">
