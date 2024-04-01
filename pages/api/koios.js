@@ -1,36 +1,47 @@
 import { KoiosProvider } from '@meshsdk/core';
 
 export default async function handler(req, res) {
-    const address = req.query.address;
+    // console.log("Request received:", req.query); // Debug log
+
+    const { action, params } = req.query;
     const apiKey = process.env.KOIOS_API_KEY;
 
-    if (!address) {
-        return res.status(400).json({ message: "The server cannot process the request due to invalid input." });
-    }
-
-    if (!apiKey) {
-        return res.status(401).json({ message: "Access token is missing or invalid." });
+    // Basic validation
+    if (!action || !apiKey) {
+        console.error("Missing required parameters");
+        return res.status(400).json({ message: "Missing required parameters." });
     }
 
     try {
         const koiosProvider = new KoiosProvider('api', apiKey);
-        const data = await koiosProvider.fetchAccountInfo(address);
-        // console.error(data);
-        // Assuming the fetch was successful and data is valid
+        if (typeof koiosProvider[action] !== 'function') {
+            console.error("Invalid action:", action);
+            return res.status(400).json({ message: "Invalid action." });
+        }
+
+        
+        // Debugging: Log the method and parameters
+        // console.log("Calling method:", action, "with params:", params);
+
+        const data = await koiosProvider[action](...Object.values(JSON.parse(params)));
+
+        // console.log("Data received:", data); // Debug log
+
         return res.status(200).json(data);
     } catch (error) {
-        console.error(error);
-
-        // Check if the error has a status code
-        if (error.response && error.response.status) {
-            // Directly use the API's status code for the response
-            const message = error.response.data && error.response.data.message ? error.response.data.message : 'An error occurred';
-            console.error(message);
-            return res.status(error.response.status).json({ message });
-
+        console.error("Direct error log:", error);
+    
+        if (error instanceof Error) {
+            // It's an error object; log its message and stack.
+            console.error("Error message:", error.message);
+            console.error("Error stack:", error.stack);
         } else {
-            // If no status code is available, fallback to a generic server error
-            return res.status(500).json({ message: "Internal server errors." });
+            // The caught item is not an Error object; log it verbatim.
+            console.error("Caught non-Error object:", error);
         }
+    
+        return res.status(500).json({ message: "Internal server error. See server logs for more details." });
     }
+    
+
 }

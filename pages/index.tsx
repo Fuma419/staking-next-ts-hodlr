@@ -7,8 +7,13 @@ export default function Home() {
 
   const [selectedAddress, setSelectedAddress] = useState('');
   const [accountBalance, setAccountBalance] = useState(0);
+  const [delegateToPoolID, setDelegateToPoolID] = useState('');
+  const [delegatedPoolTICKER, setDelegatedPoolTICKER] = useState('');
+  const [delegatedPoolNAME, setDelegatedPoolNAME] = useState('');
   const [delegatedPoolID, setDelegatedPoolID] = useState('');
   const [poolOptions, setPoolOptions] = useState({});
+  const action = 'fetchAccountInfo';
+const params = { address: 'someAddressValue', otherParam: 'value' };
 
   useEffect(() => {
     // Fetch the local JSON file
@@ -22,27 +27,6 @@ export default function Home() {
     .then(data => setPoolOptions(data))
     .catch(error => console.error('Error loading pool options:', error));
   }, []);
-
-  const fetchAccountInfo = async () => {
-    if (!selectedAddress) {
-      toast.error('No address selected');
-      return;
-    }
-  
-    try {
-      const response = await fetch(`/api/koios?address=${selectedAddress}`);
-      if (!response.ok) {
-        throw new Error(`Failed to fetch account info: ${response.statusText}`);
-      }
-      const info = await response.json();
-      const balance = info.balance ? Number(info.balance) / 1000000 : 0; // Adjust based on the actual structure and ensure fallback
-      const pool = info.poolId ? info.poolId : '';
-      setAccountBalance(balance);
-      setDelegatedPoolID(pool);
-    } catch (error) {
-      toast.error(error.message || 'An unexpected error occurred');
-    }
-  };  
 
   return (
     <div className="container backgroundImage">
@@ -72,8 +56,8 @@ export default function Home() {
                     {/* Dropdown for selecting pool */}
         <div className="custom-stake-button">
           <select className="custom-stake-button"
-              value={delegatedPoolID}
-              onChange={(e) => setDelegatedPoolID(e.target.value)}
+              value={delegateToPoolID}
+              onChange={(e) => setDelegateToPoolID(e.target.value)}
             >
               {Object.entries(poolOptions).map(([name, id]) => (
               <option key={id.toString()} value={id.toString()}>
@@ -87,38 +71,78 @@ export default function Home() {
             Mobile browser support coming soon. Please return from a desktop or mobile wallet.
           </div>
         <div className="custom-stake-button">
-            <StakeButton
-              poolId={delegatedPoolID} // Use the selected pool ID from the dropdown
-              onCheck={(address: string) => {
-                return new Promise((resolve, reject) => {
-                  fetch(`/api/koios?address=${address}`)
+        <StakeButton
+          poolId={delegateToPoolID}
+          onCheck={(address: string) => {
+            return new Promise((resolve, reject) => {
+              const params = { address: address };
+              const queryString = `action=fetchAccountInfo&params=${encodeURIComponent(JSON.stringify(params))}`;
+              
+              fetch(`/api/koios?${queryString}`)
+                .then(response => response.json())
+                .then(info => {
+                  const balance = Number(info.balance) / 1000000; // Adjust based on the actual structure of your info
+                  const delegated_pool_id = info.poolId ? info.poolId : '';
+                  setDelegatedPoolID(delegated_pool_id);
+                  setAccountBalance(balance);
+                  setSelectedAddress(address);
+                  
+                  // Now, fetch additional pool info using the API handler
+                  if(delegated_pool_id) {
+                    fetch('/api/poolInfo', {
+                      method: 'POST',
+                      headers: {
+                        'Content-Type': 'application/json',
+                      },
+                      body: JSON.stringify({
+                        pool_bech32_ids: [delegated_pool_id],
+                      }),
+                    })
                     .then(response => response.json())
-                    .then(info => {
-                      const balance = Number(info.balance) / 1000000; // Adjust this line based on the actual structure of your info
-                      setAccountBalance(balance);
-                      setSelectedAddress(address);
+                    .then(data => {
+                      if(data && data.length > 0) {
+                        setDelegatedPoolTICKER(data[0].meta_json.ticker);
+                        setDelegatedPoolNAME(data[0].meta_json.name);
+                      }
                       resolve(info);
                     })
                     .catch(error => {
-                      toast.error(error.message || 'An unexpected error occurred');
+                      console.error('Failed to fetch delegated pool info:', error);
                       reject(error);
                     });
+                  } else {
+                    resolve(info);
+                  }
+                })
+                .catch(error => {
+                  toast.error(error.message || 'An unexpected error occurred');
+                  reject(error);
                 });
-              }}
-            />
+            });
+          }}
+          
+        />
             </div>
             </div>
           <div>
           {selectedAddress && (
               <>
               <div className="balance">
-                Wallet Balance: {accountBalance ? `₳ ${Number(accountBalance).toLocaleString()}` : '₳ 0'}
+                Current delegation status:
+              </div>
+              <div className="balance">
+                Balance: {accountBalance ? `₳ ${Number(accountBalance).toLocaleString()}` : '₳ 0'}<br /><br />
+                Pool name: {delegatedPoolNAME}<br /><br />
+                Pool ticker: {delegatedPoolTICKER}
+              </div>
+{/*               <div className="balance">
+                Delegated to ID: {delegatedPoolID}
               </div>
               <div className="balance">
                 Stake Address: {selectedAddress}
-              </div>
+              </div> */}
 {/*               <div className="balance">
-                Delegated to: {delegatedPoolID}
+                Delegated to: {delegateToPoolID}
               </div> */}
               </>
             )}
