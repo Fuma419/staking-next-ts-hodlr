@@ -38,11 +38,11 @@
 
 /* Adjustments for main title and accent */
 .balance {
-  color: #fff;
+  color: #ffffffca;
   font-family: 'Noto+Sans', sans-serif;
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 200;
-  letter-spacing: 3pt;
+  letter-spacing: 2pt;
   padding-bottom: 50pt;
   text-align: center;
 }

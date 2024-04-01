@@ -128,9 +128,7 @@ const params = { address: 'someAddressValue', otherParam: 'value' };
           {selectedAddress && (
               <>
               <div className="balance">
-                Current delegation status:
-              </div>
-              <div className="balance">
+                Current delegation status:<br /><br />
                 Balance: {accountBalance ? `₳ ${Number(accountBalance).toLocaleString()}` : '₳ 0'}<br /><br />
                 Pool name: {delegatedPoolNAME}<br /><br />
                 Pool ticker: {delegatedPoolTICKER}
