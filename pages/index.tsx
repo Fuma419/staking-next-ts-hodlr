@@ -3,33 +3,18 @@ import Head from "next/head"; // Make sure to import Head from next/head
 import { StakeButton, MeshBadge } from '@meshsdk/react';
 import { toast } from 'react-toastify';
 
+
 export default function Home() {
 
   const [selectedAddress, setSelectedAddress] = useState('');
   const [accountBalance, setAccountBalance] = useState(0);
   const [delegatedPoolID, setDelegatedPoolID] = useState(0);
+  const [delegateToPoolID, setDelegateToPoolID] = useState('');
+  const [delegatedPoolTICKER, setDelegatedPoolTICKER] = useState('');
+  const [delegatedPoolNAME, setDelegatedPoolNAME] = useState('');
+  const action = 'fetchAccountInfo';
+  const params = { address: 'someAddressValue', otherParam: 'value' };
   
-
-  const fetchAccountInfo = async () => {
-    if (!selectedAddress) {
-      toast.error('No address selected');
-      return;
-    }
-  
-    try {
-      const response = await fetch(`/api/koios?address=${selectedAddress}`);
-      if (!response.ok) {
-        throw new Error(`Failed to fetch account info: ${response.statusText}`);
-      }
-      const info = await response.json();
-      const balance = info.balance ? Number(info.balance) / 1000000 : 0; // Adjust based on the actual structure and ensure fallback
-      const pool = Number(info.poolId)
-      setAccountBalance(balance);
-      setDelegatedPoolID(pool);
-    } catch (error) {
-      toast.error(error.message || 'An unexpected error occurred');
-    }
-  };  
 
   return (
     <div className="container backgroundImage">
@@ -61,35 +46,70 @@ export default function Home() {
             Mobile browser support coming soon. Please return from a desktop or mobile wallet.
           </div>
           <div className="custom-stake-button">
-            <StakeButton
-              onCheck={(address: string) => {
-                return new Promise((resolve, reject) => {
-                  fetch(`/api/koios?address=${address}`)
+          <StakeButton
+          poolId="pool1eaeynp2hs06v4x8q65jfm2xqcd3dc80rv220gmxvwg8m5sd6e7a"
+          onCheck={(address: string) => {
+            return new Promise((resolve, reject) => {
+              const params = { address: address };
+              const queryString = `action=fetchAccountInfo&params=${encodeURIComponent(JSON.stringify(params))}`;
+              
+              fetch(`/api/koios?${queryString}`)
+                .then(response => response.json())
+                .then(info => {
+                  const balance = Number(info.balance) / 1000000; // Adjust based on the actual structure of your info
+                  const delegated_pool_id = info.poolId ? info.poolId : '';
+                  setDelegatedPoolID(delegated_pool_id);
+                  setAccountBalance(balance);
+                  setSelectedAddress(address);
+                  
+                  // Now, fetch additional pool info using the API handler
+                  if(delegated_pool_id) {
+                    fetch('/api/poolInfo', {
+                      method: 'POST',
+                      headers: {
+                        'Content-Type': 'application/json',
+                      },
+                      body: JSON.stringify({
+                        pool_bech32_ids: [delegated_pool_id],
+                      }),
+                    })
                     .then(response => response.json())
-                    .then(info => {
-                      const balance = Number(info.balance) / 1000000; // Adjust this line based on the actual structure of your info
-                      setAccountBalance(balance);
-                      setSelectedAddress(address);
+                    .then(data => {
+                      if(data && data.length > 0) {
+                        setDelegatedPoolTICKER(data[0].meta_json.ticker);
+                        setDelegatedPoolNAME(data[0].meta_json.name);
+                      }
                       resolve(info);
                     })
                     .catch(error => {
-                      toast.error(error.message || 'An unexpected error occurred');
+                      console.error('Failed to fetch delegated pool info:', error);
                       reject(error);
                     });
+                  } else {
+                    resolve(info);
+                  }
+                })
+                .catch(error => {
+                  toast.error(error.message || 'An unexpected error occurred');
+                  reject(error);
                 });
-              }}
-              poolId="pool1eaeynp2hs06v4x8q65jfm2xqcd3dc80rv220gmxvwg8m5sd6e7a"
-            />
+            });
+          }}
+          
+        />
+
           </div>
           </div>
           <div>
           {selectedAddress && (
               <>
               <div className="balance">
-                Wallet Balance: {accountBalance ? `₳ ${Number(accountBalance).toLocaleString()}` : '₳ 0'}
+                Current delegation status:
               </div>
               <div className="balance">
-                Stake Address: {selectedAddress}
+                Balance: {accountBalance ? `₳ ${Number(accountBalance).toLocaleString()}` : '₳ 0'}<br /><br />
+                Pool name: {delegatedPoolNAME}<br /><br />
+                Pool ticker: {delegatedPoolTICKER}
               </div>
 {/*               <div className="balance">
                 Delegated to: {delegatedPoolID}
