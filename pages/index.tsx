@@ -97,26 +97,27 @@ export default function Home() {
           }}
           
         />
+                            {/* Placeholder for when selectedAddress is not available */}
+                            {!selectedAddress && (
+            <div className="balance-placeholder"></div>
+          )}
+          </div>
 
           </div>
-          </div>
-          <div>
           {selectedAddress && (
               <>
               <div className="balance">
-                Current delegation status:
-              </div>
-              <div className="balance">
+                Current delegation status:<br /><br />
                 Balance: {accountBalance ? `₳ ${Number(accountBalance).toLocaleString()}` : '₳ 0'}<br /><br />
                 Pool name: {delegatedPoolNAME}<br /><br />
                 Pool ticker: {delegatedPoolTICKER}
               </div>
-{/*               <div className="balance">
+             {/*<div className="balance">
                 Delegated to: {delegatedPoolID}
               </div> */}
               </>
             )}
-        </div>
+
         <div className="button-container">
           <button className="custom-button" onClick={() => window.location.href = 'https://www.hodlerstaking.com/'}>
             Back
