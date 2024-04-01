@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Head from "next/head"; // Make sure to import Head from next/head
+import Document from "next/head"; // Make sure to import Head from next/head
 import { StakeButton, MeshBadge } from '@meshsdk/react';
 import { toast } from 'react-toastify';
 
@@ -8,22 +8,17 @@ export default function Home() {
 
   const [selectedAddress, setSelectedAddress] = useState('');
   const [accountBalance, setAccountBalance] = useState(0);
-  const [delegatedPoolID, setDelegatedPoolID] = useState(0);
-  const [delegateToPoolID, setDelegateToPoolID] = useState('');
   const [delegatedPoolTICKER, setDelegatedPoolTICKER] = useState('');
   const [delegatedPoolNAME, setDelegatedPoolNAME] = useState('');
-  const action = 'fetchAccountInfo';
-  const params = { address: 'someAddressValue', otherParam: 'value' };
-  
 
   return (
     <div className="container backgroundImage">
-      <Head>
+      <Document>
         <title>Mesh App on Cardano</title>
         <meta name="description" content="A Cardano dApp powered by Mesh" />
         <link rel="icon" href="https://raw.githubusercontent.com/Fuma419/HodlerStaking/main/Hodler_Green_Icon_round.png"/>
         <link href="https://meshjs.dev/css/template.css" rel="stylesheet" key="mesh-demo" />
-      </Head>
+      </Document>
       
       <main className="main">
         <div className="logo-container" style={{
@@ -58,7 +53,6 @@ export default function Home() {
                 .then(info => {
                   const balance = Number(info.balance) / 1000000; // Adjust based on the actual structure of your info
                   const delegated_pool_id = info.poolId ? info.poolId : '';
-                  setDelegatedPoolID(delegated_pool_id);
                   setAccountBalance(balance);
                   setSelectedAddress(address);
                   

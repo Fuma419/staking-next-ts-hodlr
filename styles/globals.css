@@ -40,7 +40,7 @@
   flex-direction: column; /* Stack children vertically */
   justify-content: space-between; /* Push content to top and buttons to bottom */
   min-height: 100vh; /* At least the height of the viewport */
-  padding: 1vw; /* You can adjust this padding to suit your design */
+
 }
 /* Adjustments for main title and accent */
 .balance {
@@ -56,7 +56,7 @@
 .balance,
 .balance-placeholder {
   /* Apply the same height here to reserve space */
-  min-height: 35vh; /* Reserve 1/3 of the viewport height */
+  min-height: 38vh; /* Reserve 1/3 of the viewport height */
   /* Other styles that are shared between the balance and the placeholder */
 }
 
