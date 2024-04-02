@@ -31,7 +31,6 @@ const params = { address: 'someAddressValue', otherParam: 'value' };
   return (
     <div className="container backgroundImage">
       <Head>
-        <link href="https://meshjs.dev/css/template.css" rel="stylesheet" key="mesh-demo" />
         <title>CNC Group Delegation</title>
         <meta name="description" content="CNC Group Delegation - powered by Mesh" />
       </Head>
@@ -122,6 +121,10 @@ const params = { address: 'someAddressValue', otherParam: 'value' };
           }}
           
         />
+                                    {/* Placeholder for when selectedAddress is not available */}
+                                    {!selectedAddress && (
+            <div className="balance-placeholder"></div>
+          )}
             </div>
             </div>
           <div>
@@ -129,8 +132,8 @@ const params = { address: 'someAddressValue', otherParam: 'value' };
               <>
               <div className="balance">
                 Current delegation status:<br /><br />
-                Balance: {accountBalance ? `₳ ${Number(accountBalance).toLocaleString()}` : '₳ 0'}<br /><br />
-                Pool name: {delegatedPoolNAME}<br /><br />
+                Balance: {accountBalance ? `₳ ${Number(accountBalance).toLocaleString()}` : '₳ 0'}<br />
+                Pool name: {delegatedPoolNAME}<br />
                 Pool ticker: {delegatedPoolTICKER}
               </div>
 {/*               <div className="balance">

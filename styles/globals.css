@@ -1,5 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic&subset=latin,latin-ext');
+@import url('https://meshjs.dev/css/template.css');
 
 @tailwind base;
 @tailwind components;
@@ -19,8 +20,9 @@
 
 .main {
   display: flex;
-  justify-content: flex-start; /* Align content to the top */
-  /* other styles */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: space-between; /* Push content to top and buttons to bottom */
+  min-height: 100vh; /* At least the height of the viewport */
 }
 
 .bg-gradient-to-r {
@@ -40,11 +42,20 @@
 .balance {
   color: #ffffffca;
   font-family: 'Noto+Sans', sans-serif;
+  height: 30vh;
   font-size: 28px;
   font-weight: 200;
-  letter-spacing: 2pt;
+  letter-spacing: 3pt;
   padding-bottom: 50pt;
   text-align: center;
+  line-height: 3pc;
+}
+
+.balance,
+.balance-placeholder {
+  /* Apply the same height here to reserve space */
+  height: 30vh; /* Reserve 1/3 of the viewport height */
+  /* Other styles that are shared between the balance and the placeholder */
 }
 
 .main .title {
@@ -87,7 +98,7 @@
 }
 
 .button-container {
-    position: absolute;
+
     bottom: 0; /* This aligns the container to the bottom of the .main */
     left: 0; /* Aligns to the left */
     width: 100%; /* Spans the full width of .main */
@@ -106,9 +117,9 @@
   color: #fff;
   font-size: 25px;
   cursor: pointer;
-  margin-left: 30px; /* Uniform margin for all sides will center buttons and create space between them */
-  margin-right: 30px;
   outline: .5px solid white; /* Adjust the outline width as needed */
+  margin-left: 40px; /* Uniform margin for all sides will center buttons and create space between them */
+  margin-right: 40px;
 }
 
 .custom-button:hover {
@@ -119,7 +130,7 @@
 .stake-message {
     display: none;
     color: #fff; /* Adjust the color to fit your design */
-    padding: 20px;
+    padding: 5pt;
     text-align: center;
     font-size: 16px; /* Adjust the size as needed */
 
@@ -130,10 +141,10 @@
     font-family: 'Noto+Sans', sans-serif;
     border-color: rgba(0, 0, 255, 0.252);
     width: auto;
-    height: 50pt;
     letter-spacing: 2pt;
     font-size: 25px;
     background-color: rgba(255, 255, 255, 0.40);
+    margin: 1pt;
   }
 
   .custom-stake-button select {
@@ -152,13 +163,20 @@
   }
 /* Media queries for responsive adjustments */
 @media (max-width: 768px) {
+  .main {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: space-between; /* Push content to top and buttons to bottom */
+    min-height: 100vh; /* At least the height of the viewport */
+    padding: 1vw; /* You can adjust this padding to suit your design */
+  }
     /* Adjustments for main title and accent */
 .main .title .accentColor {
     color: rgb(27, 80, 55);
     font-family: 'Noto+Sans', sans-serif;
     font-size: 35px;
     font-weight: 200;
-    letter-spacing: 5pt;
+    letter-spacing: 10pt;
   }
   
   .main .title {
@@ -169,7 +187,7 @@
   }
     .logo-container img {
         width: auto;
-        max-width: 200px; /* Adjust if necessary */
+        max-width: 250px; /* Adjust if necessary */
         }
     .logo-container img a{
         display: flex;
@@ -205,10 +223,9 @@
   }
 
   .custom-button {
-    min-width: 30%;
-    padding: 12px; /* Smaller padding for mobile devices */
-    font-size: 20px; /* Smaller font size for mobile devices */
+    
+    padding: 20px; /* Smaller padding for mobile devices */
+    font-size: 16px; /* Smaller font size for mobile devices */
     margin: 10px; /* Increase margin if needed for mobile devices */
-    outline: 1px solid white; /* Adjust the outline width as needed */
   }
 }
